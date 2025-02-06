@@ -34,7 +34,7 @@ def build_hf_dataset(local_folder, dataset_name, class_names=["class0"]):
     # each sub-dict => {"bbox": Sequence(float32), "category": ClassLabel(...)}
 
     features = Features({
-        "image": Image(decode=True),  # store image path or load if decode=True
+        "image": Image(decode=False),  # store image path or load if decode=True
         "objects": Sequence({
             "bbox": Sequence(Value("float32")),
             "category": ClassLabel(names=class_names)
